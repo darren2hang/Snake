@@ -10,7 +10,7 @@ public class Main extends PApplet {
     public static final int SNAKE = 2;
     public static final int EMPTY = 0;
     public static boolean ALIVE = true;
-
+    public static int startingSnakeLength =3;
 
     Board board;
     Snake snake;
@@ -25,8 +25,8 @@ public class Main extends PApplet {
         ALIVE = true;
         size(600, 600);
         board = new Board(ROW, COL);
-        apple = new Apple(10, 15);
-        snake = new Snake(10, 7, 3, apple);
+        apple = new Apple(15, 15);
+        snake = new Snake(10, 8, startingSnakeLength, apple);
         direction = "right";
     }
 
@@ -43,7 +43,7 @@ public class Main extends PApplet {
             textFont(f, 50);
             fill(0);
             text("GAME OVER!", 150, 250);
-            text("Your final size was " + snake.getSnakebody().size(), 90, 320);
+            text("Your final score was " + (snake.getSnakebody().size()-startingSnakeLength), 90, 320);
         }
 
     }
