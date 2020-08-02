@@ -10,7 +10,7 @@ public class Main extends PApplet {
     public static final int SNAKE = 2;
     public static final int EMPTY = 0;
     public static boolean ALIVE = true;
-    public static int startingSnakeLength =3;
+    public static int startingSnakeLength =10;
 
     Board board;
     Snake snake;
@@ -52,13 +52,17 @@ public class Main extends PApplet {
         for (int r = 0; r < ROW; r++) {
             for (int c = 0; c < COL; c++) {
                 if (board.getVal(r, c) == APPLE) {
-                    fill(color(255, 0, 0));
+                    fill(color(101,255,87));
                 } else if (board.getVal(r, c) == SNAKE) {
-                    fill(color(0, 0, 255));
+                    fill(color(52, 58, 237));
                 } else if (board.getVal(r, c) == EMPTY) {
-                    fill(color(0, 255, 0));
+                    fill(color(101, 255, 87));
                 }
                 rect(c * SIZE, r * SIZE, SIZE, SIZE);
+                if (board.getVal(r,c) == APPLE){
+                    fill(color(217, 15, 15));
+                    ellipse(c*SIZE+SIZE/2,r*SIZE+SIZE/2,SIZE,SIZE);
+                }
             }
         }
     }
